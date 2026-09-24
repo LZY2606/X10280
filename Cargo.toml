@@ -1,0 +1,22 @@
+[package]
+name = "tc_webbing"
+version = "0.1.0"
+edition = "2021"
+description = "Frame-Number Webbing: SMPTE drop-frame, user bits and multi-source timecode alignment workbench"
+
+[dependencies]
+axum = { version = "0.7", features = ["macros"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["fs", "set-header"] }
+rusqlite = { version = "0.32", features = ["bundled", "blob"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+hex = "0.4"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.dev]
+opt-level = 0
