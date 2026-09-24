@@ -1,0 +1,30 @@
+[package]
+name = "tc_ribbon"
+version = "0.1.0"
+edition = "2021"
+description = "SMPTE timecode / drop-frame / multi-source alignment workbench (offline)"
+
+[lib]
+name = "tc_ribbon"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tc_ribbon"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "sync"] }
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
+sha2 = "0.10"
+anyhow = "1"
+tower = "0.5"
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"
+
+[profile.test]
+opt-level = 1
