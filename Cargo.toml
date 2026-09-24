@@ -1,0 +1,28 @@
+[package]
+name = "tc-workbench"
+version = "0.1.0"
+edition = "2021"
+description = "SMPTE timecode / drop-frame / multi-source alignment review workbench"
+
+[lib]
+name = "tc_workbench"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tc-workbench"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "net"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.37", features = ["bundled"] }
+
+[dev-dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[profile.test]
+opt-level = 0
