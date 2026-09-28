@@ -1,0 +1,23 @@
+[package]
+name = "tcweave"
+version = "0.1.0"
+edition = "2021"
+description = "SMPTE timecode / drop-frame / multi-source alignment workbench"
+
+[lib]
+name = "tcweave"
+path = "src/lib.rs"
+
+[[bin]]
+name = "tcweave"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "0.7", default-features = false, features = ["http1", "matched-path", "query", "tokio", "form"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macr
+os", "net", "sync"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31", features = ["bundled"] }
+
+[dev-dependencies]
